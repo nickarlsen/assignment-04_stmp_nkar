@@ -2,9 +2,9 @@ namespace Assignment.Core;
 
 public interface ITagRepository
 {
-    (Response Response, int TagId) Create(TagCreateDTO tag);
+    (Response Response, int WorkItemId) Create(TagCreateDTO tag);
     IReadOnlyCollection<TagDTO> Read();
-    TagDTO Find(int tagId);
+    TagDTO Find(int WorkItemId);
     Response Update(TagUpdateDTO tag);
-    Response Delete(int tagId, bool force = false);
+    Response Delete(int WorkItemId, bool force = false);
 }

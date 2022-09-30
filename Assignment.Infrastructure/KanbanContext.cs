@@ -1,4 +1,5 @@
 namespace Assignment.Infrastructure;
+using Microsoft.EntityFrameworkCore;
 
 public class KanbanContext : DbContext
 {
@@ -13,6 +14,10 @@ public class KanbanContext : DbContext
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
+        modelBuilder.Entity<WorkItem>().Property(i => i.State).HasConversion(
+                        v => v.ToString(), 
+                        v => (State)Enum.Parse(typeof(State), v));
+
         modelBuilder.Entity<WorkItem>()
                     .Property(i => i.Title)
                     .HasMaxLength(100);

@@ -3,8 +3,11 @@ namespace Assignment.Infrastructure;
 public class User
 {
     public int Id { get; set; }
+    [StringLength(100)]
+    [Required]
     public string Name { get; set; }
-
+    [StringLength(100)]
+    [Required]
     [EmailAddress]
     public string Email { get; set; }
 
